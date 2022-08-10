@@ -16,6 +16,11 @@ const Item = {
   },
 };
 
+const id = {
+  type: "string",
+  description: "The id of the item",
+}
+
 // Options for get all items
 const getItemsOpts = {
   schema: {
@@ -31,6 +36,13 @@ const getItemsOpts = {
 
 const getItemOpts = {
   schema: {
+    params: {
+      type: "object",
+      properties: {
+        id
+      },
+      required: ["id"],
+    },
     response: {
       200: Item,
     },
@@ -56,6 +68,13 @@ const postItemOpts = {
 
 const deleteItemOpts = {
   schema: {
+    params: {
+      type: "object",
+      properties: {
+        id
+      },
+      required: ["id"],
+    },
     response: {
       204: {
         type: "object",
@@ -70,6 +89,13 @@ const deleteItemOpts = {
 
 const updateItemOpts = {
   schema: {
+    params: {
+      type: "object",
+      properties: {
+        id
+      },
+      required: ["id"],
+    },
     body: {
       type: "object",
       required: ["name"],
