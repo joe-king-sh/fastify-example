@@ -1,0 +1,4 @@
+### world
+GET http://localhost:3000/ 
+### animals
+GET http://localhost:3000/animas 
