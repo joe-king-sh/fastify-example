@@ -1,6 +1,7 @@
 import fastify from "fastify";
 import { exit } from "process";
 import userRoutes from "./modules/user/user.route";
+import { userSchemas } from "./modules/user/user.schema";
 
 const server = fastify();
 
@@ -9,6 +10,10 @@ server.get("/healthcheck", async (request, response) => {
 });
 
 const main = async () => {
+  //先にスキーマを追加してからRouteを登録する
+  for (const schema of userSchemas) {
+    server.addSchema(schema);
+  }
   server.register(userRoutes, { prefix: "/api/users" });
 
   try {
