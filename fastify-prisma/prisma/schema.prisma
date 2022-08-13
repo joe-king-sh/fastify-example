@@ -20,12 +20,12 @@ model user {
 }
 
 model product {
-  id       Int      @id @default(autoincrement())
-  createAt DateTime @default(now())
-  updateAt DateTime @updatedAt
-  title    String   @db.VarChar(255)
-  content  String?
-  price    Float
-  owner    user     @relation(fields: [ownerId], references: [id])
-  ownerId  Int
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  title     String   @db.VarChar(255)
+  content   String?
+  price     Float
+  owner     user     @relation(fields: [ownerId], references: [id])
+  ownerId   Int
 }

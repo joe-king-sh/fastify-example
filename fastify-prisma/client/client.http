@@ -22,3 +22,21 @@ Content-Type: application/json
 
 ### GET Users
 GET http://localhost:3000/api/users HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTAsImVtYWlsIjoiNkBleGFtcGxlLmNvbSIsIm5hbWUiOiJtZSIsImlhdCI6MTY2MDI4NjY5NH0.8ZRQQqCc1qo_7X_T1WUMmCV9-s2WcrMaz-dVYEQWIHc
+
+### Create Product
+POST http://localhost:3000/api/products HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTAsImVtYWlsIjoiNkBleGFtcGxlLmNvbSIsIm5hbWUiOiJtZSIsImlhdCI6MTY2MDM2MzM2M30.vK6ioY7KLXXVI1CZh7VjiZ3yn_y-7tPNJGgD4TAT4gE
+
+
+{
+  "title": "super product",
+  "price": 1000,
+  "content": "super content"
+}
+
+### GET Products
+GET http://localhost:3000/api/products HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTAsImVtYWlsIjoiNkBleGFtcGxlLmNvbSIsIm5hbWUiOiJtZSIsImlhdCI6MTY2MDM2MzM2M30.vK6ioY7KLXXVI1CZh7VjiZ3yn_y-7tPNJGgD4TAT4gE
