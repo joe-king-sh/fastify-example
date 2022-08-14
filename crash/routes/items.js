@@ -42,6 +42,7 @@ const getItemOpts = {
         id
       },
       required: ["id"],
+      maximum:100,
     },
     response: {
       200: Item,

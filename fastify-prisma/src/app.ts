@@ -8,7 +8,9 @@ import swagger from "@fastify/swagger";
 import { withRefResolver } from "fastify-zod";
 import { version } from "../package.json";
 
-export const server = fastify();
+export const server = fastify({
+  logger: true,
+});
 
 declare module "fastify" {
   export interface FastifyInstance {
@@ -30,7 +32,7 @@ server.get("/healthcheck", async (request, response) => {
 });
 
 server.register(fjwt, {
-  secret: "supersecret",
+  secret: "supersecretsupersecretsupersecret",
 });
 server.decorate(
   "authenticate",

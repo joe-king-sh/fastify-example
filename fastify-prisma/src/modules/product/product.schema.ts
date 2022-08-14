@@ -8,7 +8,7 @@ const productInput = {
 };
 
 const productGenrated = {
-  id: z.number(),
+  id: z.number().refine(() => true),
   createdAt: z.string(),
   updatedAt: z.string(),
 };
