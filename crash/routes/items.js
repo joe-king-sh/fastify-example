@@ -19,7 +19,7 @@ const Item = {
 const id = {
   type: "string",
   description: "The id of the item",
-}
+};
 
 // Options for get all items
 const getItemsOpts = {
@@ -39,10 +39,9 @@ const getItemOpts = {
     params: {
       type: "object",
       properties: {
-        id
+        id,
       },
       required: ["id"],
-      maximum:100,
     },
     response: {
       200: Item,
@@ -72,7 +71,7 @@ const deleteItemOpts = {
     params: {
       type: "object",
       properties: {
-        id
+        id,
       },
       required: ["id"],
     },
@@ -93,7 +92,7 @@ const updateItemOpts = {
     params: {
       type: "object",
       properties: {
-        id
+        id,
       },
       required: ["id"],
     },
@@ -122,6 +121,46 @@ const itemRoutes = (fastify, options, done) => {
   fastify.post("/items", postItemOpts);
   fastify.put("/items/:id", updateItemOpts);
   fastify.delete("/items/:id", deleteItemOpts);
+
+  fastify.get("/users/:id", {
+    schema: {
+      params: {
+        type: "object",
+        properties: {
+          id: {
+            type: "string",
+            description: "The id of the item"
+        }
+        },
+        required: ["id"],
+      },
+      querystring: {
+        type: 'object',
+        properties: {
+          ids: {
+            type: 'array',
+            default: [],
+            maxItems: 3,
+            items: { type: 'integer' }
+          },
+        },
+      },
+      // body: {
+      //   type: "object",
+      //   required: ["name"],
+      //   properties: {
+      //     name: { type: "string" },
+      //   },
+      // },
+      response: {
+        200: Item,
+      },
+    },
+
+    handler: (request, reply) => {
+      reply.send(200, { message: "Many users." });
+    },
+  });
 
   done();
 };
